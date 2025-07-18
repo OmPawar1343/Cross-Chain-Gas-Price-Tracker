@@ -1,36 +1,93 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Cross-Chain Gas Price Tracker & Wallet Simulation Dashboard
+
+A modern, responsive dashboard for tracking gas prices across Ethereum, Polygon, and Arbitrum, simulating wallet transactions, and visualizing gas price volatility with a candlestick chart. Built with Next.js, Zustand, ethers, Alchemy SDK, and lightweight-charts, the UI matches a professional dark dashboard design with a collapsible sidebar and tabbed content.
+
+---
+
+## Features
+
+- **Live Gas Price Tracking:**
+  - Real-time gas prices for Ethereum, Polygon, and Arbitrum using Alchemy SDK.
+  - Data displayed in a table and visualized as a candlestick chart (gas price volatility).
+- **Wallet Simulation:**
+  - Simulate sending transactions and estimate gas costs without real blockchain interaction.
+  - Tabbed interface for switching between simulation and chart views.
+- **Modern Dashboard UI:**
+  - Collapsible sidebar with logo, navigation icons, and footer.
+  - Responsive design: sidebar overlays on mobile, always visible on desktop.
+  - Card-style panels, modern fonts, and a dark color palette.
+- **State Management:**
+  - Zustand for global state (gas prices, wallet simulation, UI state).
+- **Blockchain Data:**
+  - ethers.js and Alchemy SDK for reliable, up-to-date blockchain data.
+- **Charting:**
+  - lightweight-charts v4 for high-performance candlestick charts.
+
+---
+
+## Tech Stack
+
+- [Next.js](https://nextjs.org/) (App Router)
+- [Zustand](https://zustand-demo.pmnd.rs/)
+- [ethers.js](https://docs.ethers.org/)
+- [Alchemy SDK](https://docs.alchemy.com/reference/alchemy-sdk-quickstart)
+- [lightweight-charts v4](https://tradingview.github.io/lightweight-charts/)
+- TypeScript
+- Custom CSS (dark dashboard theme)
+
+---
 
 ## Getting Started
 
-First, run the development server:
+1. **Install dependencies:**
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+2. **Set up environment variables:**
+   - Create a `.env.local` file with your Alchemy API keys for each chain:
+     ```env
+     NEXT_PUBLIC_ALCHEMY_ETHEREUM_KEY=your-ethereum-key
+     NEXT_PUBLIC_ALCHEMY_POLYGON_KEY=your-polygon-key
+     NEXT_PUBLIC_ALCHEMY_ARBITRUM_KEY=your-arbitrum-key
+     ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+3. **Run the development server:**
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   ```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+4. **Open the app:**
+   - Visit [http://localhost:3000](http://localhost:3000) in your browser.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## Project Structure
 
-To learn more about Next.js, take a look at the following resources:
+- `src/components/` – UI components (Sidebar, GasTable, GasChart, WalletSimulator, etc.)
+- `src/hooks/` – Custom hooks for polling gas prices, Uniswap prices, etc.
+- `src/store/` – Zustand stores for app state
+- `src/utils/` – Utility functions
+- `app/` – Next.js app directory (pages, layout, etc.)
+- `public/` – Static assets (logo, icons)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Customization
 
-## Deploy on Vercel
+- **UI Theme:**
+  - The dashboard uses a custom dark theme in `globals.css`.
+  - Sidebar, cards, and typography match the provided design image.
+- **Sidebar:**
+  - Add your logo in `src/components/Sidebar.tsx`.
+  - Customize navigation items and icons as needed.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## License
+
+This project is open source and available under the [MIT License](LICENSE).
