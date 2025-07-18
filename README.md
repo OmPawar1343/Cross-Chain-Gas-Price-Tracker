@@ -88,6 +88,4 @@ A modern, responsive dashboard for tracking gas prices across Ethereum, Polygon,
 
 ---
 
-## License
 
-This project is open source and available under the [MIT License](LICENSE).
